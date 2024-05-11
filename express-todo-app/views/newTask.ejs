@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create new task</title>
+</head>
+<body>
+    <input type="text" id="title" placeholder="Enter title"/>
+    <input type="text" id="description" placeholder="Enter description"/>
+    <button id="postBTN">CREATE NEW TASK</button>
+
+    <script>
+      const postBTN = document.getElementById('postBTN');
+    
+      postBTN.addEventListener('click', async () => {
+  
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+  
+    
+        const taskData = { title, description}
+        try {
+          const response = await fetch('http://localhost:3000/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(taskData)
+          });
+    
+          if (response.ok) {
+            console.log(response.body);
+          } else {
+            console.error('Failed to create task');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      });
+    </script>
+</body>
+</html>

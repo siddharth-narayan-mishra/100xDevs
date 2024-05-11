@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do App</title>
+
+    <script>
+        let FF_FOUC_FIX;
+      </script>
+</head>
+<body>
+    <h1>To-Do App</h1>
+
+    <a href="http://localhost:3000/newTask"><button id="post">Create new task</button></a>
+    <button id="put">Edit task</button>
+    <button id="delete">Delete task</button>
+    
+    <hr/>
+
+    <% for( let i = 0; i < tasks.length; i++ ) { %>
+        <%= tasks[i].title %>
+        <hr/>
+    <% } %>
+
+</body>
+</html>
